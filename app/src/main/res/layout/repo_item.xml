@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.jscode.githubrepos.model.RepoData" />
+        <variable
+            name="onClickHandler"
+            type="com.jscode.githubrepos.util.RepoOnClick" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:onClick="@{()->onClickHandler.onClickRepo(item)}"
+        style="@style/Card">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="72dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/name_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.name}"
+                app:layout_constraintBottom_toTopOf="@id/desc_text"
+                app:layout_constraintEnd_toStartOf="@id/share_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/TextHeader"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/desc_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.description}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/share_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_text"
+                style="@style/TextCaption.Desc" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/share_button"
+                android:layout_width="72dp"
+                android:layout_height="0dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:icon="@drawable/outline_send_black_36dp"
+                app:iconSize="36dp"
+                android:onClick="@{()->onClickHandler.onClickIcon(item)}"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

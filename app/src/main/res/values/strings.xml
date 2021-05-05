@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Github Browser</string>
+    <string name="add">add</string>
+    <string name="delete">delete</string>
+    <string name="view">view</string>
+    <string name="track_your_favourite_repo">Track your favourite repo</string>
+    <string name="add_now">ADD NOW</string>
+    <string name="owner_organization">Owner / Organization</string>
+    <string name="repo_name">Repo Name</string>
+</resources>

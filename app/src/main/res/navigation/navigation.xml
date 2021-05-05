@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.jscode.githubrepos.ui.MainFragment"
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_repoFragment"
+            app:destination="@id/repoFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_mainFragment_to_repoAddFragment"
+            app:destination="@id/repoAddFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoFragment"
+        android:name="com.jscode.githubrepos.ui.RepoFragment"
+        android:label="RepoFragment" >
+        <argument
+            android:name="data"
+            app:argType="com.jscode.githubrepos.model.RepoData" />
+        <action
+            android:id="@+id/action_repoFragment_to_commitsFragment"
+            app:destination="@id/commitsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoAddFragment"
+        android:name="com.jscode.githubrepos.ui.RepoAddFragment"
+        android:label="RepoAddFragment" />
+    <fragment
+        android:id="@+id/commitsFragment"
+        android:name="com.jscode.githubrepos.ui.CommitsFragment"
+        android:label="CommitsFragment" >
+        <argument
+            android:name="owner"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="branch"
+            app:argType="com.jscode.githubrepos.model.BranchData" />
+    </fragment>
+</navigation>

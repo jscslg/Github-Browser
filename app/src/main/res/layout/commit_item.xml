@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.jscode.githubrepos.model.CommitData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Card">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/date_text"
+                style="@style/TextCaption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:formatDateText="@{item.commit.author.date}" />
+
+            <View
+                android:id="@+id/line"
+                style="@style/Line"
+                app:layout_constraintTop_toBottomOf="@id/date_text"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/message_text"
+                style="@style/TextCaption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.commit.message}" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/user_image"
+                style="@style/UserImage"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/message_text"
+                imageUrl="@{item.author.url}" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextCaption"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/user_image"
+                app:layout_constraintTop_toBottomOf="@id/message_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.commit.author.name}"
+                android:textStyle="bold" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

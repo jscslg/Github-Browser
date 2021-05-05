@@ -2,15 +2,18 @@ package com.jscode.githubrepos.repository.rest
 
 import com.google.gson.GsonBuilder
 import com.jscode.githubrepos.model.*
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = "https://api.github.com"
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create(GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()))
+
     .baseUrl(BASE_URL)
     .build()
 
